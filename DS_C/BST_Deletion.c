@@ -69,16 +69,16 @@ Node* deleteNode(Node *root, int x) {
         return root;
     }
     if (x < root->data) {
-        root->left = deleteNode(root->left, x); // recursion
+        root->left = deleteNode(root->left, x);                // recursion
     } else if (x > root->data) {
         root->right = deleteNode(root->right, x);  
     } else {
         // Node found
-        if (root->left == NULL) {
+        if (root->left == NULL) {                            // for no left child existing, we just look for the right child to grandparent
             Node *temp = root->right;
             free(root);
             return temp;
-        } else if (root->right == NULL) {
+        } else if (root->right == NULL) {                    // for no right child existing, we just look for left child to grandparent           
             Node *temp = root->left;
             free(root);
             return temp;
