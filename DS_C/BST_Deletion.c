@@ -69,9 +69,9 @@ Node* deleteNode(Node *root, int x) {
         return root;
     }
     if (x < root->data) {
-        root->left = deleteNode(root->left, x);  // Added missing x parameter
+        root->left = deleteNode(root->left, x); // recursion
     } else if (x > root->data) {
-        root->right = deleteNode(root->right, x);  // Added missing x parameter
+        root->right = deleteNode(root->right, x);  
     } else {
         // Node found
         if (root->left == NULL) {
