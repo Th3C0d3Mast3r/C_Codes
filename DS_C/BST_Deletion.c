@@ -75,17 +75,17 @@ Node* deleteNode(Node *root, int x) {
     } else {
         // Node found
         if (root->left == NULL) {
-            Node *temp = root->right;  // Fixed: no need to malloc temp
+            Node *temp = root->right;
             free(root);
             return temp;
         } else if (root->right == NULL) {
-            Node *temp = root->left;  // Fixed: no need to malloc temp
+            Node *temp = root->left;
             free(root);
             return temp;
         }
 
-        // Node with two children: get the inorder successor (smallest in the right subtree)
-        Node *temp = findMin(root->right);  // Fixed: removed x parameter from findMin
+        //  get the inorder successor (smallest in the right subtree)
+        Node *temp = findMin(root->right); 
         root->data = temp->data;
         root->right = deleteNode(root->right, temp->data);
     }
