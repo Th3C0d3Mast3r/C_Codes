@@ -4,7 +4,7 @@ We will be using stucts for this-using self referential struct
 */
 
 #include <stdio.h>
-#include <stdbool>
+#include <stdbool.h>
 
 typedef struct node{
     int data;

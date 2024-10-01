@@ -27,7 +27,7 @@ Node* create(Tree *tree)
     printf("VALUE: ");
     scanf("%d", &x);
 
-    if(x == -1) return NULL;  
+    if(x == -1) return NULL;                            // IF DATA ENTERED IS -1, WE DEEM IT AS 'NULL'
     tree->size++;
     Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->data = x;
