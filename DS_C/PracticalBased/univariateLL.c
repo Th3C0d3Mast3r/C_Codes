@@ -18,7 +18,7 @@ void init(List* list){
 }
 
 void add(List* list, int data){
-    Node* newNode = (Node*)malloc(sizeof(Node));    // Fix: Allocate memory for Node, not Node*
+    Node* newNode = (Node*)malloc(sizeof(Node)); 
     newNode->data = data;
     newNode->next = NULL;
     list->size++;
@@ -34,7 +34,7 @@ void add(List* list, int data){
 }
 
 List* performAddition(List* list1, List* list2){
-    List* newList = (List*)malloc(sizeof(List));    // Fix: Allocate memory for newList
+    List* newList = (List*)malloc(sizeof(List));
     init(newList);
 
     Node* temp1 = list1->head;
@@ -80,7 +80,7 @@ int main(){
             printf("CONSTANT for Polynomial-1: ");
             scanf("%d", &x1);
             printf("CONSTANT for Polynomial-2: ");
-            scanf("%d", &x2);                       // Fix: Correct variable name for Polynomial-2
+            scanf("%d", &x2);
             add(&list1, x1);
             add(&list2, x2);
             break;
