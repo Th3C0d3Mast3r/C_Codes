@@ -80,6 +80,7 @@ void main(){
     int n,k;
     printf("Enter the number of members:");
     scanf("%d",&n);
+    
     printf("Enter the elemination interval:");
     scanf("%d",&k);
 

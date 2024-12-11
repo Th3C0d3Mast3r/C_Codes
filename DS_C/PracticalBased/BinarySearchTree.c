@@ -46,6 +46,64 @@ void addNode(Tree* tree, int data){
     tree->size++;   
 }
 
+Node* findMin(Node* node) {
+    // Find the minimum value node in the right subtree (in-order successor)
+    while (node->left != NULL) {
+        node = node->left;
+    }
+    return node;
+}
+
+Node* deleteNode(Node* root, int key) {
+    // Base case: Tree is empty
+    if (root == NULL) {
+        return root;
+    }
+
+    // Recur down the tree to find the node to delete
+    if (key < root->data) {
+        root->left = deleteNode(root->left, key);
+    } else if (key > root->data) {
+        root->right = deleteNode(root->right, key);
+    } else {
+        // Node to be deleted is found
+
+        // Case 1: Node has no child (leaf node)
+        if (root->left == NULL && root->right == NULL) {
+            free(root);
+            return NULL;
+        }
+
+        // Case 2: Node has only one child
+        if (root->left == NULL) {
+            Node* temp = root->right;
+            free(root);
+            return temp;
+        } else if (root->right == NULL) {
+            Node* temp = root->left;
+            free(root);
+            return temp;
+        }
+
+        // Case 3: Node has two children
+        // Find the in-order successor (smallest in the right subtree)
+        Node* temp = findMin(root->right);
+        // Replace the data of the current node with the successor's data
+        root->data = temp->data;
+        // Delete the in-order successor
+        root->right = deleteNode(root->right, temp->data);
+    }
+    
+    return root;
+}
+
+void removeNode(Tree* tree, int key) {
+    if (tree->root != NULL) {
+        tree->root = deleteNode(tree->root, key);
+        tree->size--;
+    }
+}
+
 void inOrder(Node* root){
     // PRINTS:- L-D-R
     if(root!=NULL){

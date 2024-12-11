@@ -27,7 +27,7 @@ int main()
 	int a=15;
 	int b=9;
 	
-	printf("\n\n\tFINAL ANSWER:- "multiply(a, b));
+	printf("\n\n\tFINAL ANSWER:- %d", multiply(a, b));
 
 
 }
